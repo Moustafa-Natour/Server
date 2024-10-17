@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const userRoutes = require('./routes/UserRoute');
 require('dotenv/config');
 const Users = require('./models/UserModel');
+const serverless = require('serverless-http');
 
 const app = express();
 
@@ -77,5 +78,4 @@ app.get('/dashboard', authenticateToken, (req, res) => {
     res.json({ message: 'Welcome to your dashboard!', user: req.user });
 });
 
-// Vercel serverless function export
-module.exports = app;
+module.exports = serverless(app);
