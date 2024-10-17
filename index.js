@@ -76,7 +76,7 @@ try {
         .then(() => console.log('Mongo Database Successfully Connected'))
         .catch(err => console.log(err));
 
-    const port = process.env.PORT;
+    // const port = process.env.PORT;
 
 
 
@@ -85,8 +85,8 @@ try {
     });
 
 
-    const server = app.listen(port, () => {
-        console.log("Server is running on : ", port);
+    const server = app.listen(() => {
+        console.log("Server is running on : ");
     })
 } catch (error) {
     console.log(error)
