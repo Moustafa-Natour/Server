@@ -2,5 +2,17 @@
 2- npm install express cors moongoose jsonwebtoken bcrypt dotenv
 3- Created auth endpoints and middleware using jsonwebtoken
 4- Created database in MongoDb for this example 
-5- Created ReactJs for the frontend
+5- Created ReactJs for the frontend with the login and dashboard pages
+6- Integrated the frontend with the backend and now data is working with Axios post or get 
+7- Postman documination 
+8- Nodejs is working localy and with postman but there's an error in vercel and netlify w 
  
+ Git Links:
+ frontend:https://github.com/Moustafa-Natour/massyve-client
+ backend(not working):https://github.com/Moustafa-Natour/Server
+
+ Vercel Links:
+frontend:https://massyve-client-six.vercel.app/
+backend:https://massyve-client-six.vercel.app/
+
+Login details : m@icloud.com password m
