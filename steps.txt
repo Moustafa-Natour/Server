@@ -1,0 +1,6 @@
+1- npm init 
+2- npm install express cors moongoose jsonwebtoken bcrypt dotenv
+3- Created auth endpoints and middleware using jsonwebtoken
+4- Created database in MongoDb for this example 
+5- Created ReactJs for the frontend
+ 
