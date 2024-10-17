@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const userRoutes = require('./routes/UserRoute');
 require('dotenv/config');
-const Users = require('./models/UserModel'); // <-- Import User model
+const Users = require('./models/UserModel');
 
 try {
     app.use(bodyParser.json());
@@ -36,38 +36,39 @@ try {
             return res.status(400).json({ error: 'Invalid credentials' });
             console.log(res)
         }
+    })
 
-        // Generate JWT token
-        const token = jwt.sign(
-            { userId: user._id, username: user.username },
-            process.env.JWT_SECRET,
-            { expiresIn: '1h' }
-        );
+    //     // Generate JWT token
+    //     const token = jwt.sign(
+    //         { userId: user._id, username: user.username },
+    //         process.env.JWT_SECRET,
+    //         { expiresIn: '1h' }
+    //     );
 
-        // Send the token to the client
-        res.json({ token });
-    });
+    //     // Send the token to the client
+    //     res.json({ token });
+    // });
 
-    // Middleware to authenticate JWT
-    const authenticateToken = (req, res, next) => {
-        const authHeader = req.headers['authorization'];
-        const token = authHeader && authHeader.split(' ')[1];  // Bearer TOKEN
+    // // Middleware to authenticate JWT
+    // const authenticateToken = (req, res, next) => {
+    //     const authHeader = req.headers['authorization'];
+    //     const token = authHeader && authHeader.split(' ')[1];  // Bearer TOKEN
 
-        if (!token) {
-            return res.status(401).json({ error: 'Access denied. No token provided.' });
-        }
+    //     if (!token) {
+    //         return res.status(401).json({ error: 'Access denied. No token provided.' });
+    //     }
 
-        // Verify the token
-        jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-            if (err) {
-                return res.status(403).json({ error: 'Invalid token.' });
-            }
+    //     // Verify the token
+    //     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    //         if (err) {
+    //             return res.status(403).json({ error: 'Invalid token.' });
+    //         }
 
-            // Add user 
-            req.user = user;
-            next();
-        });
-    };
+    //         // Add user 
+    //         req.user = user;
+    //         next();
+    //     });
+    // };
 
     // DB Connect 
     const dbOptions = { useNewUrlParser: true, useUnifiedTopology: true }
